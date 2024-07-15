@@ -20,14 +20,14 @@ run:
 lintCheck:
 	@( \
     	pip install pylint; \
-		pylint myapp.py --fail-under 8 --fail-on E; \
+		pylint myapp_patch.py --fail-under 8 --fail-on E; \
 	)
 
 securityCheck:
 	@( \
 		pip3 install bandit; \
-		bandit -r myapp.py -f json | jq '.metrics._totals'; \
-		bandit -r myapp.py -f json | jq -e '.metrics._totals."SEVERITY.HIGH" == 0'; \
+		bandit -r myapp_patch.py -f json | jq '.metrics._totals'; \
+		bandit -r myapp_patch.py -f json | jq -e '.metrics._totals."SEVERITY.HIGH" == 0'; \
 	)
 
 check:
