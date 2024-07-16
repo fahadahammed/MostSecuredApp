@@ -40,4 +40,5 @@ def protected():
         raise BadRequest("Invalid token")
 
 if __name__ == "__main__":
+    print("Hi")
     app.run(debug=True)
